@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion "android-L"
+    buildToolsVersion "20.0.0"
+
+    defaultConfig {
+        applicationId "net.codeoclock.hugh.catsonthego"
+        minSdkVersion "L"
+        targetSdkVersion "L"
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    wearApp project(':wear')
+    compile 'com.google.android.gms:play-services-wearable:+'
+    compile files('libs/picasso-2.3.2.jar')
+    compile files('libs/retrofit-1.6.1.jar')
+    compile files('libs/gson-2.2.4.jar')
+}
